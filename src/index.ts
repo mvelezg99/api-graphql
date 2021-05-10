@@ -19,5 +19,5 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 app.listen(5000, () => {
-  console.log(`GraphQL API running on: http://localhost:${5000}`);
+  console.log(`GraphQL API running on: http://localhost:${5000}/graphql`);
 });

@@ -1,0 +1,18 @@
+type Character {
+  _id: ID
+  name: String
+  gender: Gender
+  race: Race
+  games: [Game]
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum Race {
+  HYLIAN
+  GERUDO
+  FAIRY
+}

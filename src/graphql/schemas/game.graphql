@@ -1,0 +1,4 @@
+type Game {
+  _id: ID
+  title: String
+}

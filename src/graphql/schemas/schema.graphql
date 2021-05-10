@@ -1,10 +1,4 @@
 type Query {
-  hello: String!
   getCharacters: [Character]
-}
-
-type Character {
-  id: ID
-  name: String
-  race: String
+  gameHello: String
 }

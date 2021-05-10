@@ -1,12 +1,5 @@
-// @packages
-import { IResolvers } from 'graphql-tools';
-
 // @resolvers
-import { getCharacters } from './characters';
+import { characterResolver } from './character';
+import { gameResolver } from './game';
 
-export const resolvers: IResolvers = {
-  Query: {
-    hello: () => 'Hello World!',
-    getCharacters,
-  },
-};
+export const resolvers = [characterResolver, gameResolver];
