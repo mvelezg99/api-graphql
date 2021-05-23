@@ -11,3 +11,7 @@ type Gender = 'MALE' | 'FEMALE';
 type Race = 'HYLIAN' | 'GERUDO' | 'FAITY';
 
 export type Characters = Array<Character>;
+
+export interface getCharacterArgs {
+  _id: string;
+}

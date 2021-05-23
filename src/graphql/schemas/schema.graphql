@@ -1,4 +1,5 @@
 type Query {
   getCharacters: [Character]
+  getCharacter(_id: ID!): Character
   gameHello: String
 }
