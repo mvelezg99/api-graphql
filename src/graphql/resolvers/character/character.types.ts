@@ -15,7 +15,7 @@ export type NewCharacter = {
   race: Race;
   gender: Gender;
   games: Array<string>;
-}
+};
 
 type Gender = 'MALE' | 'FEMALE';
 
@@ -26,3 +26,7 @@ export type Characters = Array<Character>;
 export interface getCharacterArgs {
   _id: string;
 }
+
+export type CreateCharacterArgs = {
+  character: NewCharacter;
+};

@@ -5,8 +5,8 @@ import data from '../../../data/data.json';
 import {
   Character,
   Characters,
+  CreateCharacterArgs,
   getCharacterArgs,
-  NewCharacter,
 } from './character.types';
 import { Games } from '../game/game.types';
 
@@ -15,7 +15,10 @@ export const getCharacters = (): Characters => {
   return characters;
 };
 
-export const getCharacter = (_: unknown, args: getCharacterArgs): Character => {
+export const getCharacter = (
+  _parent: unknown,
+  args: getCharacterArgs
+): Character => {
   const character = data.characters.find(
     (character) => character._id === args._id
   ) as Character;
@@ -28,13 +31,14 @@ export const getGamesFromCharacter = (parent: Character): Games => {
 };
 
 export const createCharacter = (
-  _: unknown,
-  character: NewCharacter
+  _parent: unknown,
+  args: CreateCharacterArgs
 ): string => {
   const newCharacter = {
     _id: data.characters.length.toString(),
-    ...character,
+    ...args.character,
   };
+
   data.characters.push(newCharacter);
-  return 'succesfully!';
+  return 'Character created succesfully!';
 };
