@@ -16,3 +16,10 @@ enum Race {
   GERUDO
   FAIRY
 }
+
+input NewCharacter {
+  name: String!
+  gender: Gender!
+  race: Race!
+  games: [String!]!
+}

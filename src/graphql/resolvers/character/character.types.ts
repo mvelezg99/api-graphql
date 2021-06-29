@@ -6,6 +6,17 @@ export type Character = {
   games: Array<string>;
 };
 
+export type newCharacterArgs = {
+  character: NewCharacter;
+};
+
+export type NewCharacter = {
+  name: string;
+  race: Race;
+  gender: Gender;
+  games: Array<string>;
+}
+
 type Gender = 'MALE' | 'FEMALE';
 
 type Race = 'HYLIAN' | 'GERUDO' | 'FAITY';

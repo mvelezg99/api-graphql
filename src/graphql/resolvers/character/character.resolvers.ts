@@ -2,7 +2,12 @@
 import data from '../../../data/data.json';
 
 // @types
-import { Character, Characters, getCharacterArgs } from './character.types';
+import {
+  Character,
+  Characters,
+  getCharacterArgs,
+  NewCharacter,
+} from './character.types';
 import { Games } from '../game/game.types';
 
 export const getCharacters = (): Characters => {
@@ -20,4 +25,16 @@ export const getCharacter = (_: unknown, args: getCharacterArgs): Character => {
 export const getGamesFromCharacter = (parent: Character): Games => {
   const games = data.games.filter((game) => parent.games.includes(game._id));
   return games;
+};
+
+export const createCharacter = (
+  _: unknown,
+  character: NewCharacter
+): string => {
+  const newCharacter = {
+    _id: data.characters.length.toString(),
+    ...character,
+  };
+  data.characters.push(newCharacter);
+  return 'succesfully!';
 };

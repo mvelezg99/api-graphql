@@ -3,3 +3,7 @@ type Query {
   getCharacter(_id: ID!): Character
   gameHello: String
 }
+
+type Mutation {
+  createCharacter(character: NewCharacter!): String!
+}
