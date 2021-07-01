@@ -8,23 +8,24 @@ And [***Graph***](https://graphql.org/learn/thinking-in-graphs/) is because Grap
 ### When to use it?
 You could use GraphQL to create any API, but in some cases it would just be an unnecessary additional workload.
 
-For example; if you need to create an API that will be consumed by only one web application and will have a few endpoints (Login, register, and two forms to create something in your database) GraphQL would not be the best choice, because that work could be done faster and easier with a REST API.
+For example; if you need to create an API that will be consumed by only one web application and will only have a few pages (login, register, and two forms to create something in your database) GraphQL would not be the best choice, because that work could be done faster and easier with a REST API.
 
-But if you have to construct an API that would be consumed by different clients and each client has to consume the same information but in a different way or access only to certain parts of that information, implementing GraphQL would be a great idea, because you can create your queries and the clients could access to them and request only for the needed data, for instance; you have an API for books, and is consumed by three clients:
-* A mobile app where you can find books by author or genre, but it would return only the title, the author and the genre of the book
-* An admin web application to add, edit or consult all the information of the books
+But if you have to construct an API that would be consumed by different clients and each client has to consume the same information but in a different ways or access only to certain parts of that information, implementing GraphQL would be a great idea because you can create your queries and the clients could access to them and requesting only for the needed data.
+For instance; you have an API for books, and is consumed by three different clients:
+* A mobile app where you can find books by author or genre, but it would return only the title, author and the genre of the book
 * A web application similar to the mobile application where you can find books, but you have more filters and the API would return the author, genre, release year, rating, comments, etc.
+* An admin web application to add, edit or consult all the information of the books
 
-So, as you can see, if you construct a REST API you would have to create an endpoint for each request or implement some additional logic to receive the data to be returned, but with GraphQL you could just create a query and the client that consumes the API would request the needed data.
+So, as you can see, if you construct a REST API you would have to create an endpoint for each request or implement some additional logic to return the specified data, but with GraphQL you could just create a query and the client that consumes the API would request only the needed data.
 
 ### How to use it?
 To implement GraphQL in your applications, the first thing you should do is run your API on a server, and you could implement this in the programming language of your preference, using the libraries and patterns you want. For example I used NodeJS + Express to run my server.
 
-Then you could use a graph data communication layer like [Apollo](https://www.apollographql.com/), so you can easily connect your backend API with your frontend clients, using [Apollo Server](https://www.apollographql.com/docs/apollo-server/) and [Apollo Client](https://www.apollographql.com/docs/tutorial/client/).
+Then, you could use a graph data communication layer like [Apollo](https://www.apollographql.com/), so you can easily connect your backend API with your frontend clients, using [Apollo Server](https://www.apollographql.com/docs/apollo-server/) and [Apollo Client](https://www.apollographql.com/docs/tutorial/client/).
 
 Finally you can use a GraphQL package or library depending on your programming language, for example I used [GraphQL.js](https://www.npmjs.com/package/graphql).
 
-After you have all the setup ready, the first thing you want to do is defining your [schema](https://graphql.org/learn/schema/) that is basically all the types, [queries and mutations](https://graphql.org/learn/queries/) that your model will have. For example the CRUD operations that you want to build like consult a value from your database or create a new record.
+After you have all the setup ready, the first thing you want to do is defining your [schema](https://graphql.org/learn/schema/) that is basically all the types, [queries and mutations](https://graphql.org/learn/queries/) that your model will have. CRUD operations that you want to build like consult a value from your database or create a new record.
 
 ```ts
 type Query {
@@ -76,7 +77,7 @@ export const userResolvers = {
 };
 ```
 
-Now, you have this running on your server and you can consume your GraphQL API executing the queries and mutations that you made, like this:
+Now, you have this running on your server and you can consume your GraphQL API from your client executing the queries and mutations that you made, like this:
 
 ```gql
 query {
@@ -96,14 +97,14 @@ and then your API would return:
     "getUser": {
       "id": "1",
       "name": "Miguel",
-      "email": "mvelezg99@email.com",
+      "email": "miguel@email.com",
       "gender": "MALE"
     }
   }
 }
 ```
 
-But note that you can define what attributes you want to obtain, so for example you can ask for only the name and the email, and you do not have to construct a new query for that:
+And note that you can define what attributes you want to obtain, so for example you can ask for only the name and the email, and you do not have to construct a new query for that:
 
 ```gql
 query {
@@ -118,7 +119,7 @@ query {
   "data": {
     "getUser": {
       "name": "Miguel",
-      "email": "mvelezg99@email.com",
+      "email": "miguel@email.com",
     }
   }
 }
