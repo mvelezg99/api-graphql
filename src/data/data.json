@@ -1,28 +1,28 @@
 {
-  "characters": [
+  "users": [
     {
-      "_id": "1",
-      "name": "Link",
-      "gender": "MALE",
-      "race": "HYLIAN",
-      "games": ["1", "2"]
+      "id": "1",
+      "name": "Miguel",
+      "email": "miguel@email.com",
+      "gender": "MALE"
     },
     {
-      "_id": "2",
-      "name": "Zelda",
-      "gender": "FEMALE",
-      "race": "HYLIAN",
-      "games": ["1"]
-    }
-  ],
-  "games": [
-    {
-      "_id": "1",
-      "title": "Ocarina of Time"
+      "id": "2",
+      "name": "Berrio",
+      "email": "berrio@email.com",
+      "gender": "MALE"
     },
     {
-      "_id": "2",
-      "title": "Majora's Mask"
+      "id": "3",
+      "name": "Laura",
+      "email": "laura@email.com",
+      "gender": "FEMALE"
+    },
+    {
+      "id": "4",
+      "name": "Jhon",
+      "email": "jhon@email.com",
+      "gender": "MALE"
     }
   ]
 }

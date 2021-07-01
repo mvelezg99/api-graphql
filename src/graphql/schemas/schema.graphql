@@ -1,9 +1,3 @@
 type Query {
-  getCharacters: [Character]
-  getCharacter(_id: ID!): Character
-  gameHello: String
-}
-
-type Mutation {
-  createCharacter(character: NewCharacter!): String!
+  helloWorld: String
 }
